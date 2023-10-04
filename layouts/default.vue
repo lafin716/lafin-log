@@ -9,6 +9,8 @@ useHead({
 });
 
 const { showSidebar } = useNav();
+
+const year = new Date().getFullYear();
 </script>
 <template>
   <div class="app-container">
@@ -23,6 +25,7 @@ const { showSidebar } = useNav();
       <div class="app-body">
         <slot></slot>
       </div>
+      <div class="app-footer">© Copyrights {{ year }} lafin</div>
     </div>
   </div>
 </template>
