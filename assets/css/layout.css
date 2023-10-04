@@ -1,0 +1,17 @@
+.app-container {
+  @apply flex flex-row min-h-screen;
+}
+
+.app-container .app-sidebar {
+  /* @apply col-span-2; */
+  min-width: 240px;
+  transition: all 0.6s ease;
+}
+
+.app-container .app-sidebar.hide {
+  min-width: none;
+}
+
+.app-container .app-content {
+  /* @apply col-span-10; */
+}
