@@ -40,8 +40,8 @@ const { menus } = useMenu();
   @apply rounded-full;
   border: 1px solid rgb(0, 139, 139, 0.7);
   color: rgb(0, 139, 139, 0.7);
-  font-size: 5pt;
-  padding: 0.1rem 0.2rem;
+  font-size: 10pt;
+  padding: 0rem 0.4rem;
 }
 
 .sidebar-wrap {
@@ -52,7 +52,6 @@ const { menus } = useMenu();
 .sidebar-wrap li {
   @apply my-2 cursor-pointer rounded;
   color: rgb(0, 139, 139, 1);
-  font-size: 11pt;
 }
 
 .sidebar-wrap > li .title-wrap {
@@ -70,6 +69,7 @@ const { menus } = useMenu();
 
 .sidebar-wrap li .title-wrap .text-wrap {
   @apply flex items-center;
+  font-size: 15pt;
 }
 
 .sidebar-wrap li .title-wrap .text-wrap .title {
@@ -85,6 +85,7 @@ const { menus } = useMenu();
 
 .sidebar-wrap li .submenu .subtitle {
   @apply mx-2;
+  font-size: 13pt;
 }
 
 .sidebar-wrap li .submenu li {

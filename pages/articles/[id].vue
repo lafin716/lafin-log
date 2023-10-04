@@ -2,7 +2,7 @@
 import ContentPage from "@/views/layouts/ContentPage.vue";
 </script>
 <template>
-  <ContentPage> index </ContentPage>
+  <ContentPage> article </ContentPage>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

@@ -12,6 +12,18 @@ const menuIcon = computed(() => {
   return "right_arrow";
 });
 
+const menuTooltip = computed(() => {
+  if (!isMouseOverMenu.value) {
+    return "";
+  }
+
+  if (showSidebar.value) {
+    return "사이드바 닫기";
+  }
+
+  return "사이드바 열기";
+});
+
 const useNav = () => {
   const toggle = () => {
     console.log("toggle clicked");
@@ -30,6 +42,7 @@ const useNav = () => {
   return {
     showSidebar,
     menuIcon,
+    menuTooltip,
     toggle,
     mouseOver,
     mouseLeave,

@@ -1,18 +1,28 @@
 <script setup lang="ts">
 import useNav from "~/composables/nav";
 
-const { menuIcon, toggle, mouseOver, mouseLeave } = useNav();
+const { menuIcon, menuTooltip, toggle, mouseOver, mouseLeave } = useNav();
 </script>
 <template>
   <div class="topbar-wrap">
     <div class="topbar-left">
-      <Icon
-        :name="menuIcon"
-        @click="toggle"
-        @mouseover="mouseOver"
-        @mouseleave="mouseLeave"
-        class="btn-toggle"
-      />
+      <UTooltip
+        :ui="{
+          wrapper: 'flex justify-center items-center',
+        }"
+        :popper="{ placement: 'right-start' }"
+      >
+        <template #text>
+          <p class="text-xl mb-2">{{ menuTooltip }}</p>
+        </template>
+        <Icon
+          :name="menuIcon"
+          @click="toggle"
+          @mouseover="mouseOver"
+          @mouseleave="mouseLeave"
+          class="btn-toggle"
+        />
+      </UTooltip>
     </div>
     <div class="topbar-center"></div>
     <div class="topbar-right"></div>
