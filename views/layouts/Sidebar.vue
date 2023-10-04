@@ -1,74 +1,37 @@
-<script setup>
-const tmpActive = ref(false);
-const openMenu = () => {
-  tmpActive.value = !tmpActive.value;
-};
+<script setup lang="ts">
+import useMenu from "~/composables/menu";
+
+const { menus } = useMenu();
 </script>
 <template>
   <ul class="sidebar-wrap">
-    <li :class="{ active: tmpActive }">
-      <div class="title-wrap" @click="openMenu">
+    <li
+      v-for="(item, index) in menus"
+      :class="{ active: item.active }"
+      :key="index"
+    >
+      <div class="title-wrap" @click="item.active = !item.active">
         <div class="text-wrap">
-          <Icon name="tdesign:html5" size="20" />
-          <span class="title">폴더1</span>
-          <span class="count">12</span>
+          <Icon :name="item.icon" size="20" />
+          <span class="title">{{ item.title }}</span>
+          <span class="count">{{ item.count }}</span>
         </div>
 
         <div class="title-arrow">
           <Icon name="ic:sharp-keyboard-arrow-right" size="18" />
         </div>
       </div>
-      <div class="submenu">
-        <ul>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 1</span>
-            <span class="count">123</span>
-          </li>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 2</span>
-            <span class="count">0</span>
-          </li>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 3</span>
-            <span class="count">789</span>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li :class="{ active: tmpActive }">
-      <div class="title-wrap" @click="openMenu">
-        <div class="text-wrap">
-          <Icon name="tdesign:html5" size="20" />
-          <span class="title">폴더1</span>
-          <span class="count">12</span>
+      <template v-if="item.submenu">
+        <div class="submenu">
+          <ul>
+            <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
+              <Icon name="ph:leaf-duotone" size="15" />
+              <span class="subtitle">{{ subItem.title }}</span>
+              <span class="count">{{ subItem.count }}</span>
+            </li>
+          </ul>
         </div>
-
-        <div class="title-arrow">
-          <Icon name="ic:sharp-keyboard-arrow-right" size="18" />
-        </div>
-      </div>
-      <div class="submenu">
-        <ul>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 1</span>
-            <span class="count">123</span>
-          </li>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 2</span>
-            <span class="count">0</span>
-          </li>
-          <li>
-            <Icon name="ph:leaf-duotone" size="15" />
-            <span class="subtitle">글 3</span>
-            <span class="count">789</span>
-          </li>
-        </ul>
-      </div>
+      </template>
     </li>
   </ul>
 </template>
