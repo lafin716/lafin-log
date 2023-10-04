@@ -4,6 +4,9 @@ export default defineAppConfig({
     class: "icon", // default <Icon> class applied
     aliases: {
       logo: "game-icons:plant-roots",
+      menu: "material-symbols:menu",
+      left_arrow: "ic:outline-keyboard-double-arrow-left",
+      right_arrow: "ic:outline-keyboard-double-arrow-right",
     },
   },
 });

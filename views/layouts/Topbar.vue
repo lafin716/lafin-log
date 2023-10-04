@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import useNav from "~/composables/nav";
 
-const { toggle } = useNav();
+const { menuIcon, toggle, mouseOver, mouseLeave } = useNav();
 </script>
 <template>
   <div class="topbar-wrap">
     <div class="topbar-left">
-      <Icon name="material-symbols:menu" @click="toggle" class="btn-toggle" />
+      <Icon
+        :name="menuIcon"
+        @click="toggle"
+        @mouseover="mouseOver"
+        @mouseleave="mouseLeave"
+        class="btn-toggle"
+      />
     </div>
     <div class="topbar-center"></div>
     <div class="topbar-right"></div>
