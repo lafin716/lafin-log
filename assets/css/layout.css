@@ -3,15 +3,25 @@
 }
 
 .app-container .app-sidebar {
-  /* @apply col-span-2; */
-  min-width: 240px;
-  transition: all 0.6s ease;
+  position: relative;
+  width: 300px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3);
+  visibility: 1;
+  transition: all 270ms ease;
 }
 
 .app-container .app-sidebar.hide {
-  min-width: none;
+  width: 0px;
+  visibility: 0;
+  transform: translateX(-300px);
 }
 
 .app-container .app-content {
-  /* @apply col-span-10; */
+  @apply w-full;
+}
+
+.app-container .app-content .app-header {
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
